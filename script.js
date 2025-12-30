@@ -1,6 +1,9 @@
 // Main JavaScript for ICPASD Conference Website
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Force background colors
+    document.body.style.backgroundColor = '#f8f9fa';
+    
     // Initialize animations
     initAnimations();
     
@@ -13,12 +16,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize email link tracking
     initEmailTracking();
     
+    // Add animation classes to elements
+    addAnimationClasses();
+    
     // Console greeting
     console.log('ICPASD-1 Conference Website loaded successfully!');
     console.log('Conference: 1st International Conference on Physics and its Applications in Sustainable Development');
     console.log('Date: 20–24 April 2026');
     console.log('Venue: Mansoura-Sharm ElSheikh');
 });
+
+// Add animation classes to elements
+function addAnimationClasses() {
+    // Add fade-in class to all cards
+    const cards = document.querySelectorAll('.content-card, .committee-card, .speaker-card, .topic-item');
+    cards.forEach((card, index) => {
+        card.classList.add('fade-in');
+        // Stagger the animations
+        card.style.animationDelay = `${index * 0.1}s`;
+    });
+}
 
 // Initialize animations for elements on scroll
 function initAnimations() {
@@ -27,8 +44,7 @@ function initAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('fade-in');
             }
         });
     }, { 
@@ -37,9 +53,6 @@ function initAnimations() {
     });
     
     animatedElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         observer.observe(element);
     });
 }
@@ -137,4 +150,18 @@ document.addEventListener('keydown', function(e) {
             firstElement.focus();
         }
     }
+});
+
+// Ensure all elements are visible
+window.addEventListener('load', function() {
+    // Force display of all elements
+    const allElements = document.querySelectorAll('*');
+    allElements.forEach(el => {
+        el.style.visibility = 'visible';
+        el.style.display = 'block';
+    });
+    
+    // Force background color
+    document.body.style.backgroundColor = '#f8f9fa';
+    document.body.style.backgroundImage = 'none';
 });
