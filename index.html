@@ -11,6 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styles to ensure everything appears correctly */
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        /* Ensure all animations are visible */
+        .topic-item, .speaker-card, .committee-card, .content-card {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
 </head>
 <body>
     <!-- Fixed Registration Button -->
@@ -244,17 +256,17 @@
         <section>
             <h2 class="section-title">Abstract Submission</h2>
             <div class="content-card" style="text-align: center;">
-                <div class="speaker-icon" style="margin: 0 auto 25px; background-color: rgba(46, 204, 113, 0.1); color: var(--success-green);">
+                <div class="speaker-icon" style="margin: 0 auto 25px; background-color: rgba(46, 204, 113, 0.1); color: #2ecc71;">
                     <i class="fas fa-file-upload"></i>
                 </div>
-                <h3 style="color: var(--primary-blue); margin-bottom: 15px; font-size: 1.8rem;">Submit Your Abstract Now!</h3>
+                <h3 style="color: #0a3d62; margin-bottom: 15px; font-size: 1.8rem;">Submit Your Abstract Now!</h3>
                 <p style="margin-bottom: 25px; font-size: 1.1rem; max-width: 800px; margin-left: auto; margin-right: auto;">
                     We are now accepting abstract submissions for ICPASD-1. Share your research with the international physics community and contribute to advancing sustainable development through physics.
                 </p>
                 <a href="mailto:sciphyc@mans.edu.eg?subject=Abstract Submission for ICPASD-1" class="abstract-submission-btn">
                     <i class="fas fa-paper-plane"></i> Submit Abstract Now
                 </a>
-                <p style="margin-top: 25px; color: var(--light-text); font-style: italic;">
+                <p style="margin-top: 25px; color: #666666; font-style: italic;">
                     Abstracts should be 200–350 words in MS Word format, Times New Roman, single line spacing.
                 </p>
             </div>
@@ -312,7 +324,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <div class="logo-circle" style="width: 60px; height: 60px; font-size: 1.8rem;">
+                        <div class="logo-circle" style="width: 60px; height: 60px; font-size: 1.8rem; background-color: white; color: #0a3d62;">
                             <i class="fas fa-atom"></i>
                         </div>
                         <div class="footer-logo-text">ICPASD-1</div>
@@ -321,7 +333,7 @@
                 </div>
                 
                 <div class="footer-contact">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 20px;">Quick Contact</h3>
+                    <h3 style="color: #f9ca24; margin-bottom: 20px;">Quick Contact</h3>
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -339,7 +351,7 @@
                 </div>
                 
                 <div class="footer-links">
-                    <h3 style="color: var(--accent-gold); margin-bottom: 20px;">Important Links</h3>
+                    <h3 style="color: #f9ca24; margin-bottom: 20px;">Important Links</h3>
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-user-plus"></i>
@@ -361,5 +373,21 @@
     </footer>
     
     <script src="js/script.js"></script>
+    <script>
+        // Ensure animations work immediately
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force background colors
+            document.body.style.backgroundColor = '#f8f9fa';
+            
+            // Add animation classes after a short delay
+            setTimeout(function() {
+                const elements = document.querySelectorAll('.topic-item, .speaker-card, .committee-card, .content-card');
+                elements.forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }, 100);
+        });
+    </script>
 </body>
 </html>
